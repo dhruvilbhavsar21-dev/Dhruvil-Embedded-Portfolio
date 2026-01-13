@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dhruvil Bhavsar | Embedded Systems Portfolio</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary: #64ffda; /* Neon Cyan for accents */
+            --bg-dark: #0a192f; /* Deep Navy Background */
+            --bg-light: #112240; /* Lighter Navy for cards */
+            --text-main: #ccd6f6;
+            --text-secondary: #8892b0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        /* Navigation */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 50px;
+            background-color: rgba(10, 25, 47, 0.95);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .nav-links a {
+            color: var(--text-main);
+            text-decoration: none;
+            margin-left: 30px;
+            font-size: 0.9rem;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+            padding: 0 100px; /* Adjust for mobile later */
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            color: var(--primary);
+            font-family: 'Courier New', monospace;
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+        }
+
+        .hero h2 {
+            font-size: 4rem;
+            font-weight: 700;
+            color: var(--text-main);
+            line-height: 1.1;
+        }
+
+        .hero h3 {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--text-secondary);
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            max-width: 500px;
+            color: var(--text-secondary);
+            margin-bottom: 50px;
+        }
+
+        .btn {
+            border: 1px solid var(--primary);
+            color: var(--primary);
+            padding: 15px 30px;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+
+        .btn:hover {
+            background-color: rgba(100, 255, 218, 0.1);
+        }
+
+        /* Section Styling */
+        section {
+            padding: 100px 50px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            display: flex;
+            align-items: center;
+            font-size: 2rem;
+            color: var(--text-main);
+            margin-bottom: 40px;
+        }
+
+        .section-title::after {
+            content: "";
+            display: block;
+            width: 300px;
+            height: 1px;
+            background-color: var(--bg-light);
+            margin-left: 20px;
+        }
+
+        /* Skills Grid */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .skill-card {
+            background-color: var(--bg-light);
+            padding: 20px;
+            border-radius: 5px;
+            transition: transform 0.3s;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .skill-card h4 {
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+
+        .skill-list {
+            list-style: none;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        .skill-list li::before {
+            content: "▹";
+            color: var(--primary);
+            margin-right: 10px;
+        }
+
+        /* Experience & Education */
+        .timeline-item {
+            margin-bottom: 40px;
+        }
+
+        .timeline-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+
+        .company {
+            font-size: 1.2rem;
+            color: var(--text-main);
+        }
+
+        .company span {
+            color: var(--primary);
+        }
+
+        .date {
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        /* Projects */
+        .project-card {
+            background-color: var(--bg-light);
+            padding: 30px;
+            border-radius: 5px;
+            margin-bottom: 30px;
+            position: relative;
+        }
+
+        .project-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .folder-icon {
+            color: var(--primary);
+            font-size: 2.5rem;
+        }
+
+        .project-title {
+            color: var(--text-main);
+            font-size: 1.4rem;
+            font-weight: 700;
+        }
+
+        .project-desc {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            margin-bottom: 20px;
+        }
+
+        .tech-stack {
+            display: flex;
+            gap: 15px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            flex-wrap: wrap;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 20px;
+            color: var(--text-secondary);
+            font-size: 0.8rem;
+            margin-bottom: 20px;
+        }
+
+        .social-icons a {
+            color: var(--text-secondary);
+            font-size: 1.5rem;
+            margin: 0 10px;
+            transition: color 0.3s;
+        }
+
+        .social-icons a:hover {
+            color: var(--primary);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h2 { font-size: 3rem; }
+            .hero h3 { font-size: 2rem; }
+            nav { padding: 20px; }
+            section { padding: 60px 20px; }
+            .nav-links { display: none; } /* Simplified for mobile */
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="#" class="logo">DB.</a>
+        <div class="nav-links">
+            <a href="#about">About</a>
+            <a href="#experience">Experience</a>
+            <a href="#projects">Projects</a>
+            <a href="#contact">Contact</a>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <h1>Hi, my name is</h1>
+        <h2>Dhruvil Bhavsar.</h2>
+        <h3>I build things with code and silicon.</h3>
+        <p>
+            I am a Final-year Electronics & Instrumentation Engineering student specializing in Embedded Firmware (C/C++) and IoT Architecture. I design end-to-end prototypes from PCB circuit design to firmware logic.
+        </p>
+        <a href="mailto:dhruvilbhavsar21@gmail.com" class="btn">Get In Touch</a>
+    </section>
+
+    <section id="about">
+        <h2 class="section-title">About Me</h2>
+        <p style="color: var(--text-secondary); margin-bottom: 30px;">
+            [cite_start]Based in Ahmedabad, Gujarat[cite: 44], I am passionate about bridging the gap between hardware and software. [cite_start]I have a proven track record of developing functional prototypes, including a robot featured in <b>Gujarat Samachar</b>[cite: 7]. I am currently seeking an embedded engineering internship to apply my skills in ESP32 and Industrial Automation.
+        </p>
+
+        <h3 style="color: var(--text-main); margin-bottom: 20px;">Technical Skills</h3>
+        <div class="skills-grid">
+            <div class="skill-card">
+                <h4>Microcontrollers</h4>
+                <ul class="skill-list">
+                    <li>ESP32 (Dual Core)</li>
+                    <li>Arduino (Uno/Nano)</li>
+                    <li>NodeMCU</li>
+                    <li>STM32 (Basic)</li>
+                </ul>
+            </div>
+            <div class="skill-card">
+                <h4>Firmware & Code</h4>
+                <ul class="skill-list">
+                    <li>Embedded C / C++</li>
+                    <li>Python (Scripting)</li>
+                    <li>Verilog</li>
+                    <li>Matlab</li>
+                </ul>
+            </div>
+            <div class="skill-card">
+                <h4>IoT & Protocols</h4>
+                <ul class="skill-list">
+                    <li>I2C, SPI, UART</li>
+                    <li>ESP-NOW (Low Latency)</li>
+                    <li>Bluetooth Classic/BLE</li>
+                    <li>MQTT / HTTP</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section id="experience">
+        <h2 class="section-title">Where I've Worked</h2>
+
+        <div class="timeline-item">
+            <div class="timeline-header">
+                <h3 class="company">Industrial IoT Intern <span>@ Adbright Process Automation</span></h3>
+                <span class="date">April 2025 – Present</span>
+            </div>
+            <ul class="skill-list">
+                [cite_start]<li>Integrating IoT telemetry features into legacy PLC-based automation systems[cite: 33].</li>
+                [cite_start]<li>Developing dashboards for real-time sensor data acquisition and system health monitoring to reduce downtime[cite: 34].</li>
+            </ul>
+        </div>
+
+        <div class="timeline-item">
+            <div class="timeline-header">
+                <h3 class="company">Robotics & Automation Intern <span>@ IGTR Ahmedabad</span></h3>
+                <span class="date">May 2023 – June 2023</span>
+            </div>
+            <ul class="skill-list">
+                [cite_start]<li>Programmed 4-axis and 6-axis robotic arms for precise pick-and-place industrial operations[cite: 36].</li>
+                [cite_start]<li>Gained practical exposure to SCADA screen design and Industrial PLC logic using Siemens TIA Portal[cite: 37].</li>
+            </ul>
+        </div>
+    </section>
+
+    <section id="projects">
+        <h2 class="section-title">Featured Projects</h2>
+
+        <div class="project-card">
+            <div class="project-top">
+                <i class="far fa-folder folder-icon"></i>
+                <a href="#" style="color: var(--text-main);"><i class="fas fa-external-link-alt"></i></a>
+            </div>
+            <h3 class="project-title">IoT Hand Gesture Control Robot</h3>
+            <p class="project-desc">
+                Engineered a wireless robotic vehicle controlled via human hand gestures for contactless delivery. Implemented <b>ESP-NOW protocol</b> for low-latency (<10ms) transmission. [cite_start]Featured in Gujarat Samachar & Published in IJERT Journal[cite: 17].
+            </p>
+            <div class="tech-stack">
+                <span>ESP32</span>
+                <span>MPU6050</span>
+                <span>C++</span>
+                <span>ESP-NOW</span>
+            </div>
+        </div>
+
+        <div class="project-card">
+            <div class="project-top">
+                <i class="far fa-folder folder-icon"></i>
+            </div>
+            <h3 class="project-title">Smart IoT Mirror</h3>
+            <p class="project-desc">
+                Designed a smart reflective interface integrating OLED Display and environmental sensors (AHT20/BMP280). [cite_start]Interfaced multiple sensors on a single <b>I2C Bus</b> and integrated a DS3231 RTC for timekeeping reliability[cite: 22, 24].
+            </p>
+            <div class="tech-stack">
+                <span>ESP32</span>
+                <span>OLED</span>
+                <span>I2C</span>
+                <span>Sensors</span>
+            </div>
+        </div>
+
+        <div class="project-card">
+            <div class="project-top">
+                <i class="far fa-folder folder-icon"></i>
+            </div>
+            <h3 class="project-title">Smart Laptop Cooling System</h3>
+            <p class="project-desc">
+                Built a closed-loop active cooling system using Thermoelectric Cooling (Peltier) and water circulation. [cite_start]Achieved a temperature reduction of 8-10°C during high-performance tasks[cite: 26, 30].
+            </p>
+            <div class="tech-stack">
+                <span>Arduino</span>
+                <span>Peltier</span>
+                <span>Automation Logic</span>
+            </div>
+        </div>
+    </section>
+
+    <section id="education">
+        <h2 class="section-title">Education</h2>
+        <div class="timeline-item">
+            <div class="timeline-header">
+                <h3 class="company">B.E. Electronics & Instrumentation</h3>
+                <span class="date">Expected 2026</span>
+            </div>
+            <p style="color: var(--text-secondary)">Vishwakarma Government Engineering College (VGEC)</p>
+        </div>
+        <div class="timeline-item">
+            <div class="timeline-header">
+                <h3 class="company">Diploma in Instrumentation & Control</h3>
+                <span class="date">Graduated 2023</span>
+            </div>
+            <p style="color: var(--text-secondary)">Government Polytechnic Ahmedabad</p>
+        </div>
+    </section>
+
+    <section id="contact" style="text-align: center;">
+        <h2 style="font-size: 3rem; color: var(--text-main); margin-bottom: 20px;">Get In Touch</h2>
+        <p style="color: var(--text-secondary); max-width: 600px; margin: 0 auto 50px auto;">
+            I am currently looking for new opportunities in Embedded Systems and Firmware Development. Whether you have a question or just want to say hi, my inbox is always open!
+        </p>
+        <a href="mailto:dhruvilbhavsar21@gmail.com" class="btn" style="padding: 20px 40px;">Say Hello</a>
+        
+        <div class="social-icons" style="margin-top: 50px;">
+            <a href="https://linkedin.com/in/dhruvil-bhavsar" target="_blank"><i class="fab fa-linkedin"></i></a>
+            <a href="https://github.com/dhruvilbhavsar21-dev" target="_blank"><i class="fab fa-github"></i></a>
+            <a href="mailto:dhruvilbhavsar21@gmail.com"><i class="fas fa-envelope"></i></a>
+        </div>
+    </section>
+
+    <footer>
+        <p>Designed & Built by Dhruvil Bhavsar</p>
+    </footer>
+
+</body>
+</html>
