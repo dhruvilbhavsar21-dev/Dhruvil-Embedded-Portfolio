@@ -5,13 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Internship Presentation | Dhruvil Bhavsar</title>
     <meta name="description" content="Embedded Firmware Internship Presentation at Bonrix Software Systems by Dhruvil Bhavsar.">
-
+    
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <style>
+        /* --- CSS VARIABLES & RESET --- */
         :root {
-            --primary-color: #0ea5e9;
+            --primary-color: #0ea5e9; /* Light Blue for Tech feel */
             --secondary-color: #64748b;
             --bg-dark: #0f172a;
             --bg-card: #1e293b;
@@ -20,11 +21,7 @@
             --transition: all 0.3s ease;
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
             font-family: 'Poppins', sans-serif;
@@ -33,24 +30,12 @@
             line-height: 1.6;
         }
 
-        a {
-            text-decoration: none;
-            color: inherit;
-        }
+        a { text-decoration: none; color: inherit; }
+        ul { list-style: none; }
 
-        ul {
-            list-style: none;
-        }
-
-        .container {
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        section {
-            padding: 60px 0;
-        }
+        /* --- LAYOUT UTILITIES --- */
+        .container { max-width: 1000px; margin: 0 auto; padding: 0 20px; }
+        section { padding: 60px 0; }
 
         .section-title {
             font-size: 2.2rem;
@@ -62,6 +47,7 @@
             padding-bottom: 10px;
         }
 
+        /* --- NAVIGATION --- */
         nav {
             background-color: rgba(15, 23, 42, 0.95);
             padding: 20px 0;
@@ -72,33 +58,13 @@
             border-bottom: 1px solid #334155;
         }
 
-        nav .container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
+        nav .container { display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-size: 1.5rem; font-weight: 700; color: var(--primary-color); }
+        .nav-links { display: flex; gap: 30px; }
+        .nav-links a { font-size: 1rem; font-weight: 500; transition: var(--transition); }
+        .nav-links a:hover { color: var(--primary-color); }
 
-        .logo {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--primary-color);
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 30px;
-        }
-
-        .nav-links a {
-            font-size: 1rem;
-            font-weight: 500;
-            transition: var(--transition);
-        }
-
-        .nav-links a:hover {
-            color: var(--primary-color);
-        }
-
+        /* --- HERO SECTION --- */
         #hero {
             height: 70vh;
             display: flex;
@@ -111,31 +77,18 @@
             border-bottom: 1px solid #334155;
         }
 
-        .hero-content h1 {
-            font-size: 3rem;
-            margin-bottom: 10px;
-        }
+        .hero-content h1 { font-size: 3rem; margin-bottom: 10px; }
+        .hero-content h2 { font-size: 1.8rem; color: var(--primary-color); margin-bottom: 15px; }
+        .hero-content p { max-width: 700px; margin: 0 auto 30px; color: var(--text-muted); font-size: 1.1rem; }
 
-        .hero-content h2 {
-            font-size: 1.8rem;
-            color: var(--primary-color);
-            margin-bottom: 15px;
-        }
-
-        .hero-content p {
-            max-width: 700px;
-            margin: 0 auto 30px;
-            color: var(--text-muted);
-            font-size: 1.1rem;
-        }
-
+        /* --- PROJECT DISPLAY --- */
         .project-container {
             background-color: var(--bg-card);
             padding: 40px;
             border-radius: 12px;
             margin-bottom: 60px;
             border: 1px solid #334155;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
         }
 
         .project-video {
@@ -157,6 +110,7 @@
             display: inline-block;
         }
 
+        /* --- FILE ARCHITECTURE UI --- */
         .architecture-section {
             margin-top: 30px;
             padding-top: 20px;
@@ -199,9 +153,7 @@
             box-shadow: 0 4px 10px rgba(14, 165, 233, 0.2);
         }
 
-        .file-card i {
-            color: var(--primary-color);
-        }
+        .file-card i { color: var(--primary-color); }
 
         footer {
             background-color: #020617;
@@ -212,17 +164,9 @@
         }
 
         @media (max-width: 768px) {
-            .hero-content h1 {
-                font-size: 2.2rem;
-            }
-
-            .nav-links {
-                display: none;
-            }
-
-            .project-container {
-                padding: 20px;
-            }
+            .hero-content h1 { font-size: 2.2rem; }
+            .nav-links { display: none; }
+            .project-container { padding: 20px; }
         }
     </style>
 </head>
@@ -250,10 +194,10 @@
     <section id="feedback">
         <div class="container">
             <h2 class="section-title">01. Smart Feedback Collection System</h2>
-
+            
             <div class="project-container">
                 <div class="tech-stack"><i class="fas fa-microchip"></i> ESP32-S3 | LVGL | 7" TFT Touch | HTTP/MQTT APIs | LittleFS</div>
-
+                
                 <p>A Wi-Fi enabled interactive feedback kiosk designed to replace paper forms with an automated digital solution. The system features an intuitive LVGL-based UI with dynamic emoji routing. Engineered with robust offline-to-online data synchronization via MQTT/HTTP POST, guaranteeing zero data loss using internal LittleFS logging during network outages.</p>
 
                 <video class="project-video" controls autoplay muted loop>
@@ -276,19 +220,14 @@
     <section id="kiosk">
         <div class="container">
             <h2 class="section-title">02. Self-Service Ticketing Kiosk</h2>
-
+            
             <div class="project-container">
                 <div class="tech-stack"><i class="fas fa-qrcode"></i> ESP32-S3 | BHIM UPI APIs | UART Thermal Printer | C++</div>
-
+                
                 <p>A low-cost, self-service ticketing kiosk designed for tourist attractions. The system autonomously calculates totals via an LVGL touch interface, generates dynamic BHIM UPI QR codes using matrix arrays, polls cloud payment gateways for secure transaction verification, and utilizes raw ESC/POS UART formatting to instantly issue thermal receipts.</p>
 
                 <img src="image_4ea683.png" alt="Dynamic UPI QR Code Generation on 7-inch TFT" style="width: 100%; border-radius: 8px; margin: 20px 0; border: 2px solid #334155;">
-
-                <video class="project-video" controls autoplay muted loop style="margin-top: 0;">
-                    <source src="ticketing.mp4" type="video/mp4">
-                    Your browser does not support the video tag.
-                </video>
-
+                
                 <video class="project-video" controls autoplay muted loop style="margin-top: 0;">
                     <source src="ticketing.mp4" type="video/mp4">
                     Your browser does not support the video tag.
@@ -299,12 +238,15 @@
                     <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 15px;">Modular C++ firmware structured for asynchronous execution of UI, networking, and printing.</p>
                     <div class="file-grid">
                         <div class="file-card"><i class="fab fa-cuttlefish"></i> 7inch_touchbutton.ino</div>
+                        
                         <div class="file-card"><i class="fab fa-cuttlefish"></i> ui_kiosk.cpp</div>
                         <div class="file-card"><i class="fas fa-file-code"></i> ui_kiosk.h</div>
                         <div class="file-card"><i class="fas fa-file-code"></i> gfx_conf.h <span style="font-size: 0.7rem; color: #64748b;">(Common)</span></div>
+                        
                         <div class="file-card"><i class="fab fa-cuttlefish"></i> supabase_client.cpp</div>
                         <div class="file-card"><i class="fas fa-file-code"></i> supabase_client.h</div>
                         <div class="file-card"><i class="fas fa-file-code"></i> wifi_manager.h</div>
+                        
                         <div class="file-card"><i class="fas fa-file-code"></i> printer.h</div>
                         <div class="file-card"><i class="fas fa-file-code"></i> config.h</div>
                     </div>
