@@ -5,14 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Internship Presentation | Dhruvil Bhavsar</title>
     <meta name="description" content="Embedded Firmware Internship Presentation at Bonrix Software Systems by Dhruvil Bhavsar.">
-    
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
     <style>
-        /* --- CSS VARIABLES & RESET --- */
         :root {
-            --primary-color: #0ea5e9; /* Light Blue for Tech feel */
+            --primary-color: #0ea5e9;
             --secondary-color: #64748b;
             --bg-dark: #0f172a;
             --bg-card: #1e293b;
@@ -25,15 +22,14 @@
 
         body {
             font-family: 'Poppins', sans-serif;
-            background-color: var(--bg-dark);
+            background:
+                radial-gradient(circle at top right, rgba(14, 165, 233, 0.12), transparent 35%),
+                linear-gradient(180deg, #020617 0%, #0f172a 45%, #111827 100%);
             color: var(--text-light);
             line-height: 1.6;
         }
 
         a { text-decoration: none; color: inherit; }
-        ul { list-style: none; }
-
-        /* --- LAYOUT UTILITIES --- */
         .container { max-width: 1000px; margin: 0 auto; padding: 0 20px; }
         section { padding: 60px 0; }
 
@@ -47,7 +43,6 @@
             padding-bottom: 10px;
         }
 
-        /* --- NAVIGATION --- */
         nav {
             background-color: rgba(15, 23, 42, 0.95);
             padding: 20px 0;
@@ -56,47 +51,53 @@
             top: 0;
             z-index: 1000;
             border-bottom: 1px solid #334155;
+            backdrop-filter: blur(12px);
         }
 
-        nav .container { display: flex; justify-content: space-between; align-items: center; }
+        nav .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+        }
+
         .logo { font-size: 1.5rem; font-weight: 700; color: var(--primary-color); }
         .nav-links { display: flex; gap: 30px; }
         .nav-links a { font-size: 1rem; font-weight: 500; transition: var(--transition); }
         .nav-links a:hover { color: var(--primary-color); }
 
-        /* --- HERO SECTION --- */
         #hero {
-            height: 70vh;
+            min-height: 70vh;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
             text-align: center;
-            padding-top: 80px;
-            background: linear-gradient(180deg, #0f172a 0%, #1e293b 100%);
+            padding-top: 100px;
             border-bottom: 1px solid #334155;
         }
 
         .hero-content h1 { font-size: 3rem; margin-bottom: 10px; }
         .hero-content h2 { font-size: 1.8rem; color: var(--primary-color); margin-bottom: 15px; }
-        .hero-content p { max-width: 700px; margin: 0 auto 30px; color: var(--text-muted); font-size: 1.1rem; }
+        .hero-content p { max-width: 700px; margin: 0 auto 20px; color: var(--text-muted); font-size: 1.1rem; }
 
-        /* --- PROJECT DISPLAY --- */
         .project-container {
-            background-color: var(--bg-card);
+            background-color: rgba(30, 41, 59, 0.92);
             padding: 40px;
-            border-radius: 12px;
+            border-radius: 16px;
             margin-bottom: 60px;
             border: 1px solid #334155;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35);
         }
 
-        .project-video {
+        .project-video,
+        .project-image {
             width: 100%;
-            border-radius: 8px;
+            border-radius: 12px;
             margin: 20px 0;
             border: 2px solid #334155;
             background-color: #000;
+            display: block;
         }
 
         .tech-stack {
@@ -106,11 +107,10 @@
             font-weight: 600;
             background: rgba(14, 165, 233, 0.1);
             padding: 10px 15px;
-            border-radius: 5px;
+            border-radius: 8px;
             display: inline-block;
         }
 
-        /* --- FILE ARCHITECTURE UI --- */
         .architecture-section {
             margin-top: 30px;
             padding-top: 20px;
@@ -124,6 +124,12 @@
             display: flex;
             align-items: center;
             gap: 10px;
+        }
+
+        .architecture-note {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-bottom: 15px;
         }
 
         .file-grid {
@@ -149,11 +155,19 @@
         .file-card:hover {
             border-color: var(--primary-color);
             transform: translateY(-2px);
-            cursor: pointer;
             box-shadow: 0 4px 10px rgba(14, 165, 233, 0.2);
         }
 
         .file-card i { color: var(--primary-color); }
+
+        .missing-image {
+            margin: 20px 0;
+            padding: 16px;
+            border: 1px dashed #475569;
+            border-radius: 10px;
+            color: var(--text-muted);
+            background: rgba(15, 23, 42, 0.7);
+        }
 
         footer {
             background-color: #020617;
@@ -171,7 +185,6 @@
     </style>
 </head>
 <body>
-
     <nav>
         <div class="container">
             <div class="logo">Internship Presentation</div>
@@ -194,20 +207,18 @@
     <section id="feedback">
         <div class="container">
             <h2 class="section-title">01. Smart Feedback Collection System</h2>
-            
             <div class="project-container">
                 <div class="tech-stack"><i class="fas fa-microchip"></i> ESP32-S3 | LVGL | 7" TFT Touch | HTTP/MQTT APIs | LittleFS</div>
-                
                 <p>A Wi-Fi enabled interactive feedback kiosk designed to replace paper forms with an automated digital solution. The system features an intuitive LVGL-based UI with dynamic emoji routing. Engineered with robust offline-to-online data synchronization via MQTT/HTTP POST, guaranteeing zero data loss using internal LittleFS logging during network outages.</p>
 
-                <video class="project-video" controls autoplay muted loop>
-                    <source src="feedback.mp4" type="video/mp4">
+                <video class="project-video" controls muted loop playsinline preload="metadata">
+                    <source src="./feedback.mp4" type="video/mp4">
                     Your browser does not support the video tag.
                 </video>
 
                 <div class="architecture-section">
                     <h3><i class="fas fa-sitemap"></i> Source Code Architecture</h3>
-                    <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 15px;">Core firmware files developed for the Feedback HMI system.</p>
+                    <p class="architecture-note">Core firmware files developed for the Feedback HMI system.</p>
                     <div class="file-grid">
                         <div class="file-card"><i class="fab fa-cuttlefish"></i> FEEDBACK.ino</div>
                         <div class="file-card"><i class="fas fa-file-code"></i> gfx_conf.h</div>
@@ -220,33 +231,28 @@
     <section id="kiosk">
         <div class="container">
             <h2 class="section-title">02. Self-Service Ticketing Kiosk</h2>
-            
             <div class="project-container">
                 <div class="tech-stack"><i class="fas fa-qrcode"></i> ESP32-S3 | BHIM UPI APIs | UART Thermal Printer | C++</div>
-                
                 <p>A low-cost, self-service ticketing kiosk designed for tourist attractions. The system autonomously calculates totals via an LVGL touch interface, generates dynamic BHIM UPI QR codes using matrix arrays, polls cloud payment gateways for secure transaction verification, and utilizes raw ESC/POS UART formatting to instantly issue thermal receipts.</p>
 
-                <img src="image_4ea683.png" alt="Dynamic UPI QR Code Generation on 7-inch TFT" style="width: 100%; border-radius: 8px; margin: 20px 0; border: 2px solid #334155;">
-                
-                <video class="project-video" controls autoplay muted loop style="margin-top: 0;">
-                    <source src="ticketing.mp4" type="video/mp4">
+                <div class="missing-image">Image placeholder: `image_4ea683.png` was not found on the Desktop, so I left this area as a placeholder.</div>
+
+                <video class="project-video" controls muted loop playsinline preload="metadata" style="margin-top: 0;">
+                    <source src="./ticketing.mp4" type="video/mp4">
                     Your browser does not support the video tag.
                 </video>
 
                 <div class="architecture-section">
                     <h3><i class="fas fa-sitemap"></i> Source Code Architecture</h3>
-                    <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 15px;">Modular C++ firmware structured for asynchronous execution of UI, networking, and printing.</p>
+                    <p class="architecture-note">Modular C++ firmware structured for asynchronous execution of UI, networking, and printing.</p>
                     <div class="file-grid">
                         <div class="file-card"><i class="fab fa-cuttlefish"></i> 7inch_touchbutton.ino</div>
-                        
                         <div class="file-card"><i class="fab fa-cuttlefish"></i> ui_kiosk.cpp</div>
                         <div class="file-card"><i class="fas fa-file-code"></i> ui_kiosk.h</div>
                         <div class="file-card"><i class="fas fa-file-code"></i> gfx_conf.h <span style="font-size: 0.7rem; color: #64748b;">(Common)</span></div>
-                        
                         <div class="file-card"><i class="fab fa-cuttlefish"></i> supabase_client.cpp</div>
                         <div class="file-card"><i class="fas fa-file-code"></i> supabase_client.h</div>
                         <div class="file-card"><i class="fas fa-file-code"></i> wifi_manager.h</div>
-                        
                         <div class="file-card"><i class="fas fa-file-code"></i> printer.h</div>
                         <div class="file-card"><i class="fas fa-file-code"></i> config.h</div>
                     </div>
@@ -260,6 +266,5 @@
             <p>&copy; 2026 Dhruvil Bhavsar | Bonrix Software Systems Internship</p>
         </div>
     </footer>
-
 </body>
 </html>
