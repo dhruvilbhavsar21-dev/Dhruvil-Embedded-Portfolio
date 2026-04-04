@@ -242,6 +242,14 @@
             align-self: flex-start;
         }
 
+        .project-video {
+            width: 100%;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            border: 1px solid #334155;
+            background-color: #0f172a;
+        }
+
         /* --- EDUCATION & FOOTER --- */
         .education-item {
             text-align: center;
@@ -300,7 +308,7 @@
                 <div class="skill-category">
                     <h3>Microcontrollers</h3>
                     <div class="skill-tags">
-                        <span class="skill-tag">ESP32 (Dual Core)</span>
+                        <span class="skill-tag">ESP32-S3 (Dual Core)</span>
                         <span class="skill-tag">Arduino (Uno/Nano)</span>
                         <span class="skill-tag">NodeMCU</span>
                         <span class="skill-tag">STM32 (Basic)</span>
@@ -309,30 +317,28 @@
                 <div class="skill-category">
                     <h3>Firmware & Coding</h3>
                     <div class="skill-tags">
-                        <span class="skill-tag">Embedded C</span>
-                        <span class="skill-tag">C++</span>
+                        <span class="skill-tag">Embedded C/C++</span>
+                        <span class="skill-tag">LVGL Graphics</span>
                         <span class="skill-tag">Python (Scripting)</span>
-                        <span class="skill-tag">Verilog</span>
+                        <span class="skill-tag">Prompt Engineering</span>
                     </div>
                 </div>
                 <div class="skill-category">
                     <h3>Protocols</h3>
                     <div class="skill-tags">
-                        <span class="skill-tag">I2C</span>
-                        <span class="skill-tag">SPI</span>
-                        <span class="skill-tag">UART</span>
-                        <span class="skill-tag">ESP-NOW</span>
-                        <span class="skill-tag">BLE/Bluetooth</span>
+                        <span class="skill-tag">MQTT & HTTP APIs</span>
+                        <span class="skill-tag">I2C & SPI</span>
+                        <span class="skill-tag">UART (ESC/POS)</span>
+                        <span class="skill-tag">BLE & ESP-NOW</span>
                     </div>
                 </div>
                 <div class="skill-category">
                     <h3>Tools & Sensors</h3>
                     <div class="skill-tags">
-                        <span class="skill-tag">MPU6050</span>
-                        <span class="skill-tag">TIA Portal</span>
-                        <span class="skill-tag">MATLAB</span>
+                        <span class="skill-tag">TFT Touch Displays</span>
+                        <span class="skill-tag">TIA Portal (SCADA)</span>
                         <span class="skill-tag">PCB Design</span>
-                        <span class="skill-tag">VS Code</span>
+                        <span class="skill-tag">GitHub Copilot</span>
                     </div>
                 </div>
             </div>
@@ -343,6 +349,17 @@
         <div class="container">
             <h2 class="section-title">Experience</h2>
             <div class="timeline">
+                <div class="timeline-item">
+                    <span class="timeline-date">January 2026 - April 2026</span>
+                    <h3>Embedded Development Intern</h3>
+                    <h4>Bonrix Software Systems</h4>
+                    <ul>
+                        <li>Spearheaded the hardware-software co-design of commercial IoT edge nodes using ESP32-S3 microcontrollers and 7-inch TFT displays.</li>
+                        <li>Utilized AI development suites (GitHub Copilot, ChatGPT, Blackbox) to accelerate C++ firmware generation, LVGL UI prototyping, and memory optimization.</li>
+                        <li>Developed production-ready modules including a Smart Feedback System and a Self-Ticketing Kiosk with cloud backend integration.</li>
+                    </ul>
+                </div>
+
                 <div class="timeline-item">
                     <span class="timeline-date">April 2025 - Present (Remote)</span>
                     <h3>Industrial IoT Intern</h3>
@@ -370,6 +387,32 @@
         <div class="container">
             <h2 class="section-title">Featured Projects</h2>
             <div class="project-grid">
+
+                <div class="project-card">
+                    <h3>AI-Optimized Smart Feedback System</h3>
+                    <div class="tech-stack">ESP32-S3 • LVGL • 7" TFT • Cloud APIs</div>
+                    <video class="project-video" controls autoplay muted loop>
+                        <source src="WhatsApp Video 2026-03-25 at 11.34.58.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                    <p class="project-desc">
+                        A Wi-Fi enabled interactive feedback kiosk replacing paper forms with an interactive digital solution. Features an intuitive LVGL-based UI with dynamic emoji routing, LittleFS for offline storage, and auto-sync JSON data transmission via HTTP/MQTT. Development was accelerated using Copilot for UI state machines.
+                    </p>
+                    <a href="#" class="project-link">View Details <i class="fas fa-arrow-right"></i></a>
+                </div>
+
+                <div class="project-card">
+                    <h3>Self Ticketing Kiosk (UPI & Printer)</h3>
+                    <div class="tech-stack">ESP32-S3 • BHIM UPI • UART Printer</div>
+                    <video class="project-video" controls autoplay muted loop>
+                        <source src="WhatsApp Video 2026-04-04 at 11.19.58.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                    <p class="project-desc">
+                        A low-cost, self-service ticketing kiosk for tourist attractions. The system calculates totals via an LVGL touch interface, generates dynamic BHIM UPI QR codes, polls cloud payment gateways for verification, and uses raw ESC/POS UART formatting to instantly print thermal receipts. 
+                    </p>
+                    <a href="#" class="project-link">View Details <i class="fas fa-arrow-right"></i></a>
+                </div>
                 
                 <div class="project-card">
                     <h3>Gesture Control Robot</h3>
